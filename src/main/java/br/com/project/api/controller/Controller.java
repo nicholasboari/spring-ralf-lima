@@ -2,6 +2,8 @@ package br.com.project.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.project.api.model.Client;
 import br.com.project.api.model.Person;
 import br.com.project.api.repositories.PersonRepository;
 import br.com.project.api.service.PersonService;
@@ -94,5 +97,9 @@ public class Controller {
   @DeleteMapping("/api/{code}")
   public ResponseEntity<?> remove(@PathVariable int code) {
     return service.remove(code);
+  }
+
+  @PostMapping("/clients")
+  public void client(@Valid @RequestBody Client obj) {
   }
 }
